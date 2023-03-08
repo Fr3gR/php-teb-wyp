@@ -68,7 +68,7 @@
       <div class="row">
         <form action="users.php" method="GET">
           <input type="hidden" name="typ" value="n">
-          <input class="" type="submit" value="Nowy użytkownik">
+          <input class="btn btn-secondary" type="submit" value="Nowy użytkownik">
         </form>
       </div>
       <div class="row">
@@ -94,12 +94,12 @@
             echo "    <td><form action='users.php' method='GET'>";
             echo "          <input type='hidden' name='typ' value='e'>";
             echo "          <input type='hidden' name='id' value='{$row['nr_pracownika']}'>";
-            echo "          <input type='submit' value='Edytuj'>";
+            echo "          <input type='submit' class='btn btn-warning' value='Edytuj'>";
             echo "    </form></td>\n";
             echo "    <td><form action='users.php' method='GET'>";
             echo "          <input type='hidden' name='typ' value='u'>";
             echo "          <input type='hidden' name='id' value='{$row['nr_pracownika']}'>";
-            echo "          <input type='submit' value='Usuń'>";
+            echo "          <input type='submit' class='btn btn-danger' value='Usuń'>";
             echo "    </form></td></tr>\n";        
           }?>
           </tbody>
