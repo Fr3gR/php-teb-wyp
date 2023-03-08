@@ -30,7 +30,7 @@
         </li>
         <li class="nav-item">
         <a class="navbar-brand" href="#">
-        <img src="hotel.png" alt="Avatar Logo" style="width:35px;"> 
+        <img src="user.png" alt="Avatar Logo" style="width:35px;"> 
         </a>
         </li>
         </ul>
