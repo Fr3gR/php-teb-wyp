@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand">
         <img src="beach.png" alt="Avatar Logo" style="width:35px;"> 
         </a>
     <a class="navbar-brand" href="index.php"><b>Hotel California</b></a>
@@ -19,7 +19,7 @@
           <a class="nav-link" href="goscie.php">Goście</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="users.php">Użytkownicy</a>
+          <a class="nav-link" href="pracownicy.php">Pracownicy</a>
         </li>
       </ul>
     </div>
@@ -29,7 +29,7 @@
         <a class="nav-link" href="logowanie.php">Logowanie</a>
         </li>
         <li class="nav-item">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand">
         <img src="user.png" alt="Avatar Logo" style="width:35px;"> 
         </a>
         </li>

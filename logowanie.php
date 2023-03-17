@@ -21,8 +21,8 @@
 
             <div class="mb-md-0 mt-md-0 pb-0">
 
-              <h2 class="fw-bold mb-1 text-uppercase">Logowanie</h2>
-              <p class="text-white-50 mb-5">Podaj swój login i hasło!</p>
+              <h1 class="fw-bold mb-1 text-uppercase">Logowanie</h2>
+              <p1 class="text-white-50 mb-5">Podaj swój login i hasło!</p>
 
               <div class="form-outline form-white mb-4">
                 <input type="email" id="typeEmailX" class="form-control form-control-lg" />
@@ -33,15 +33,9 @@
                 <input type="password" id="typePasswordX" class="form-control form-control-lg" />
                 <label class="form-label" for="typePasswordX">Hasło</label>
               </div>
-
+              
               <button class="btn btn-outline-light btn-lg px-5" type="submit">Zaloguj</button>
-
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
-
+              
             </div>
           </div>
         </div>
