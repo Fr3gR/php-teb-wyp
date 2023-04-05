@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-        <a class="navbar-brand">
-        <img src="beach.png" alt="Avatar Logo" style="width:35px;"> 
-        </a>
+    <a class="navbar-brand">
+      <img src="beach.png" alt="Avatar Logo" style="width:35px;"> 
+    </a>
     <a class="navbar-brand" href="index.php"><b>Hotel California</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
@@ -23,17 +23,17 @@
         </li>
       </ul>
     </div>
-        <div class="container-fluid">
-        <ul class="navbar-nav justify-content-end">
+    <div class="container-fluid">
+      <ul class="navbar-nav justify-content-end">
         <li class="nav-item">
-        <a class="nav-link" href="logowanie.php">Logowanie</a>
+          <a class="nav-link" href="logowanie.php">Logowanie</a>
         </li>
         <li class="nav-item">
-        <a class="navbar-brand">
-        <img src="user.png" alt="Avatar Logo" style="width:35px;"> 
-        </a>
+         <a class="navbar-brand">
+            <img src="user.png" alt="Avatar Logo" style="width:35px;"> 
+          </a>
         </li>
-        </ul>
-        </div>
+       </ul>
+    </div>
   </div>
 </nav>
