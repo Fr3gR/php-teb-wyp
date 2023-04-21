@@ -10,7 +10,6 @@
   <title>HOTEL CALIFORNIA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image" href="beach.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -48,12 +47,14 @@
         <?php
         break;
       case "pn":
+        //pobieranie danych z tabeli REQUEST
         $imie = $_REQUEST['imie'];
         $nazwisko = $_REQUEST['nazwisko'];
         $pesel = $_REQUEST['pesel'];
         $login = $_REQUEST['login'];
         $haslo = $_REQUEST['haslo'];
-
+        
+        //sprawdzanie czy login jest zajęty
         $sql = "SELECT * FROM pracownicy WHERE login = '$login'";
         $result = mysqli_query($connect, $sql);
         if ($row = mysqli_fetch_array($result)) {
@@ -78,12 +79,75 @@
               echo "</div>\n";
             }
         }
-
+        
         break;
       case "e":
-        echo "<h3>EDYCJA UŻYTKOWNIKA</h3>";
+
+        $id = $_REQUEST['id'];
+        $sql = "SELECT * FROM pracownicy WHERE nr_pracownika = $id";
+        $result = mysqli_query($connect, $sql);
+        while ($row = mysqli_fetch_array($result)) {
+
+
+          echo "<div class='container-fluid mt-3'>";
+          echo "<h3>NOWY UŻYTKOWNIK</h3>";
+          echo "<form action='pracownicy.php' method='GET'>";
+          echo "<input type='hidden' name='typ' value='pe'>";
+          echo "<input type='hidden' name='id' value='{$row['nr_pracownika']}'>";
+          echo "<div class='mb-3 mt-3'>";
+          echo "<label for='imie' class='form-label'>Imię:</label>";
+          echo "<input type='text' class='form-control' id='imie' name='imie' maxlength='20' value='{$row['imie']}' required>";
+          echo "</div>";
+          echo "<div class='mb-3 mt-3'>";
+          echo "<label for='nazwisko' class='form-label'>Nazwisko:</label>";
+          echo "<input type='text' class='form-control' id='nazwisko' name='nazwisko' maxlength='50' value='{$row['nazwisko']}' required>";
+          echo "</div>";
+          echo "<div class='mb-3 mt-3'>";
+          echo "<label for='pesel' class='form-label'>Pesel:</label>";
+          echo "<input type='text' class='form-control' id='pesel' name='pesel' maxlength='11' value='{$row['pesel']}' required>";
+          echo "</div>";
+          echo "<div class='mb-3 mt-3'>";
+          echo "<label for='login' class='form-label'>Login:</label>";
+          echo "<input type='text' class='form-control' id='login' name='login' maxlength='10' value='{$row['login']}' required>";
+          echo "</div>";
+          echo "<input type='hidden' name='haslo' value='test'>";
+          echo "<input class='btn btn-dark' type='submit' value='Zatwierdź'>";
+        }
+
+
+
+        
         break;
       case "pe":
+        echo "<h3>Uploadowanie  UŻYTKOWNIKA</h3>";
+        
+        $imie = $_REQUEST['imie'];
+        $nazwisko = $_REQUEST['nazwisko'];
+        $pesel = $_REQUEST['pesel'];
+        $login = $_REQUEST['login'];
+        $haslo = $_REQUEST['haslo'];
+        $id = $_REQUEST['id'];
+        
+        //sprawdzanie czy login jest zajęty
+//temp update
+            //$sql = "INSERT INTO pracownicy (imie, nazwisko, pesel, login, haslo) VALUES ('$imie','$nazwisko','$pesel','$login','$haslo')";
+            $sql = "UPDATE pracownicy SET imie = '$imie', nazwisko = '$nazwisko', pesel = '$pesel', login = '$login', haslo = '$haslo' WHERE nr_pracownika = '$id'";
+            if($result = mysqli_query($connect, $sql)) {
+              echo "<div class='container-fluid mt-3'>\n";
+              echo "  <h3>NOWY UŻYTKOWNIK</h3>\n";
+              echo "  <p>Użytkownik: <b>$imie $nazwisko</b> został poprawnie Zmieniony</p>\n";
+              echo "  <button onclick=\"location.href='pracownicy.php'\">Powrót</button>\n";
+              echo "</div>\n";
+            } else {
+              echo "<div class='container-fluid mt-3'>\n";
+              echo "  <h3>NOWY UŻYTKOWNIK</h3>\n";
+              echo "  <p>Błąd. Użytkownik nie został poprawnie dodany</p>\n";
+              echo "  <button onclick=\"location.href='pracownicy.php'\">Powrót</button>\n";
+              echo "</div>\n";
+            }
+        
+        
+
         break;
       case "u":
         echo "<h3>USUWANIE UŻYTKOWNIKA</h3>";
@@ -94,12 +158,14 @@
   } else {
   ?>
     <div class="container-fluid mt-3">
-      <div class="row mb-2">
       <h3>Użytkownicy</h3>
+      <div class="row">
+        <div class="mb-3 mt-3">
         <form action="pracownicy.php" method="GET">
           <input type="hidden" name="typ" value="n">
-          <input class="btn btn-secondary" type="submit" value="Nowy użytkownik">
+          <input class="btn btn-dark" type="submit" value="Nowy użytkownik">
         </form>
+        </div>
       </div>
       <div class="row">
         <table class="table">
@@ -124,12 +190,12 @@
             echo "    <td><form action='pracownicy.php' method='GET'>";
             echo "          <input type='hidden' name='typ' value='e'>";
             echo "          <input type='hidden' name='id' value='{$row['nr_pracownika']}'>";
-            echo "          <input type='submit' class='btn btn-warning' value='Edytuj'>";
+            echo "          <input class='btn btn-dark' type='submit' value='Edytuj'>";
             echo "    </form></td>\n";
             echo "    <td><form action='pracownicy.php' method='GET'>";
             echo "          <input type='hidden' name='typ' value='u'>";
             echo "          <input type='hidden' name='id' value='{$row['nr_pracownika']}'>";
-            echo "          <input type='submit' class='btn btn-danger' value='Usuń'>";
+            echo "          <input class='btn btn-dark' type='submit' value='Usuń'>";
             echo "    </form></td></tr>\n";        
           }?>
           </tbody>
